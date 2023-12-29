@@ -6,21 +6,36 @@ function Todolist() {
     const [newTask,setNewTask]=useState('');
     const [tasks,setTasks]=useState([]);
     const [flash, setFlash] = useState(false);
+    const [cnt, setCnt] = useState(0);
+    useEffect(() => {
+       
+        const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+        console.log('Stored Tasks:', storedTasks); 
+        if (storedTasks && storedTasks.length > 0) {
+          setTasks(storedTasks);
+        }
+      }, []);
+      useEffect(() => {
+        
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        console.log('Tasks Saved:', tasks);
+      }, [tasks]);
     
     useEffect(() => {
 
         if (flash) {
-          document.body.style.backgroundColor = '#ffcc00'; // Flash color
+          document.body.style.backgroundColor = '#5cb85c'; 
           setTimeout(() => {
             document.body.style.backgroundColor = ''; 
             setFlash(false);
-          }, 10); 
+          }, 100); 
         }
       }, [flash])
       useEffect(() => {
-        // Display a notification when tasks are updated
+        
        {
-          notify('Task updated!');
+        const count= tasks.filter((task)=>task.completed===true);
+         setCnt(count.length);
         }
       }, [tasks]);
     
@@ -54,21 +69,24 @@ function Todolist() {
         });
       };
   return (
-    <div>
-      <h1>Todo List</h1>
+    <div className='container'>
+    <div className='headline'>
+      <h1>Todo List  {cnt}</h1>
+      <p>Tasks:{tasks.length} | Completed:{cnt}</p>
+      </div>
       <div className='btnInp'>
         <input
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
-        <button onClick={addTask}>Add Task</button>
+        <button className='Add' onClick={addTask}>Add</button>
       </div>
       
       <ul>
         {tasks.map((task) => (
             <li key={task.id} className={task.completed ? 'completed' : ''}>
-           
+          <div className='btntext'>
           <div className='tet'>{task.text}</div>
           <div className="buttons">
             <button onClick={() => deleteTask(task.id)}>Delete</button>
@@ -76,6 +94,7 @@ function Todolist() {
               {task.completed ? 'Undo' : 'Complete'}
             </button>
             </div>
+            </div> 
            
           </li>
         ))}

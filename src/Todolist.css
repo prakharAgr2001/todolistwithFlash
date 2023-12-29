@@ -1,102 +1,105 @@
+/* Todolist.css */
+
+/* Todolist.css */
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
+    background-color: #282c34;
+    color: #fff;
     margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
   }
   
   .container {
-    max-width: 600px;
-    margin-top: 50px; 
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100vh;
+    margin: 0 auto;
     padding: 20px;
+    background-color: #373b44;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    
   }
   
-  h1 {
-    color: #333;
-     text-align: center;/* Center the heading */
-    margin: auto;
+  .headline {
+    text-align: center;
+    margin-bottom: 20px;
   }
-  /* .notification {
-    background-color: #4caf50;
+  
+  .btnInp {
+    display: flex;
+    margin-bottom: 20px;
+   
+  }
+  
+  input {
+    flex: 1;
+    padding-left: 10px;
+    border: 1px solid #464b55;
+    border-radius: 30px;
+    background-color: #464b55;
     color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    margin: 0;
+   
   }
-   */
+  
+  .Add {
+    padding: 10px 30px;
+    background-color: #61dafb;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Add:hover {
+    background-color: #4fa3d1;
+  }
   
   ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    
   }
   
   li {
-    display: flex;
+    background-color: #464b55;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
    
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    max-width: 40%; 
-    white-space: normal; 
-    margin: auto;
-    
   }
   
-  li:last-child {
-    border-bottom: none;
+  li.completed {
+    background-color: #57c756;
   }
   
-  
-  .completed{
-    opacity: 0.7;
-    text-decoration: line-through;
-    max-width: 40%; 
-    white-space: normal; 
-    margin: auto;
-     justify-content: space-between;
-  }
-  .btnInp{
-    display: flex; /* Use flexbox for the container */
-    align-items: center; /* Align items vertically in the center */
-    justify-content: space-between; /* Space items evenly along the main axis */
-    margin-bottom: 20px; /* Adjust margin for spacing */
-    max-width: 40%; 
-    margin: auto;
-  }
-  input[type="text"] {
-    padding: 8px;
-    margin-right: 10px;
-     flex: 1;
-    
-    
-  
-  }
-  .buttons {
+  .btntext {
     display: flex;
-    margin-left: 50px ;
-    
-  }
+    justify-content: space-between;
+    align-items: center;
 
-  
-  button {
-    padding: 8px 12px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
   }
   
-  button:hover {
-    background-color: #45a049;
+  .buttons button {
+    padding: 8px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .tet{
+    max-width: 70%;
+  }
+  
+  .buttons button:hover {
+    background-color: #61dafb;
+  }
+  
+  @media screen and (max-width: 600px) {
+    
+    .tet{
+        max-width: 40%;
+      }
   }
   
