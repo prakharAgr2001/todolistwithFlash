@@ -1,5 +1,8 @@
 ## ✨ Welcome to the To-Do-List React App! ✨
 
+![Demo](./ToDoList.gif)
+
+
 Get ready to dive into the magic of the `useEffect` hook as it transforms your to-do list experience. This React app is not just about tasks—it's about dynamic visual feedback, seamless local storage synchronization, and real-time task count updates.
 
 ### Key Features:
